@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <!--Data item that holds the reminder details-->
+        <variable
+            name="reminderDataItem"
+            type="com.udacity.project4.locationreminders.reminderslist.ReminderDataItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".locationreminders.ReminderDescriptionActivity">
+
+        <TextView
+            android:id="@+id/reminder_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reminder_title"
+            android:textSize="@dimen/text_size_large"
+            android:layout_marginTop="@dimen/text_margin"
+            android:layout_marginStart="@dimen/text_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="@dimen/text_margin" />
+
+        <TextView
+            android:id="@+id/reminder_title_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/reminder_title_text"
+            android:layout_marginEnd="@dimen/text_margin"
+            android:textSize="@dimen/text_size_large"
+            android:text="@{reminderDataItem.title}"
+            android:layout_marginRight="@dimen/text_margin" />
+
+        <TextView
+            android:id="@+id/reminder_description_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reminder_title"
+            android:textSize="@dimen/text_size_large"
+            android:layout_marginTop="@dimen/text_margin"
+            android:layout_marginStart="@dimen/text_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/reminder_title_text"
+            android:layout_marginLeft="@dimen/text_margin" />
+
+        <TextView
+            android:id="@+id/reminder_description_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/reminder_description_text"
+            android:layout_marginEnd="@dimen/text_margin"
+            android:textSize="@dimen/text_size_large"
+            android:text="@{reminderDataItem.description}"
+            android:layout_marginRight="@dimen/text_margin" />
+
+        <TextView
+            android:id="@+id/reminder_location_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reminder_title"
+            android:textSize="@dimen/text_size_large"
+            android:layout_marginTop="@dimen/text_margin"
+            android:layout_marginStart="@dimen/text_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/reminder_description_text"
+            android:layout_marginLeft="@dimen/text_margin" />
+
+        <TextView
+            android:id="@+id/reminder_location_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/reminder_location_text"
+            android:layout_marginEnd="@dimen/text_margin"
+            android:textSize="@dimen/text_size_large"
+            android:text="@{reminderDataItem.location}"
+            android:layout_marginRight="@dimen/text_margin" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
