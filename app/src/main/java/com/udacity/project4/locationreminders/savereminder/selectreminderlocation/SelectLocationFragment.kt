@@ -5,6 +5,7 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.pm.PackageManager
+import android.location.Location
 import android.os.Bundle
 import android.view.*
 import androidx.core.content.ContextCompat
@@ -169,8 +170,10 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
 
     @SuppressLint("MissingPermission")
     private fun getMyLocation() {
-        fusedLocationProviderClient.lastLocation.addOnSuccessListener {
-            val myLocation = LatLng(it.latitude,it.longitude)
+        map?.isMyLocationEnabled = true
+        fusedLocationProviderClient.lastLocation.addOnSuccessListener { location : Location? ->
+            location ?: return@addOnSuccessListener
+            val myLocation = LatLng(location.latitude,location.longitude)
             addMapMarker(myLocation,resources.getString(R.string.my_location))
         }
     }
