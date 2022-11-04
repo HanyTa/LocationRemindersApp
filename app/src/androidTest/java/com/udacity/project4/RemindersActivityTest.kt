@@ -138,6 +138,6 @@ class RemindersActivityTest :
         )
         activityScenario.close()
     }
-    
+
 
 }

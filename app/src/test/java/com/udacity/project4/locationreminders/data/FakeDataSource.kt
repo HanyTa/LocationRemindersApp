@@ -30,7 +30,7 @@ class FakeDataSource(var reminders: MutableList<ReminderDTO> = mutableListOf()) 
             return Result.Error("fail to test")
         }
         return if (reminders.isEmpty()) {
-            Result.Error("Reminder of $id not existed");
+            Result.Error("Reminder not found");
         } else {
             Result.Success(reminders.first { it.id == id })
         }
