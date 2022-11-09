@@ -29,10 +29,15 @@ class FakeDataSource(var reminders: MutableList<ReminderDTO> = mutableListOf()) 
         if (shouldReturnError) {
             return Result.Error("fail to test")
         }
-        return if (reminders.isEmpty()) {
-            Result.Error("Reminder not found");
-        } else {
-            Result.Success(reminders.first { it.id == id })
+        return try {
+            val reminder = reminders.find { it.id == id }
+            if (reminder != null) {
+                Result.Success(reminder)
+            } else {
+                Result.Error("Reminder not found")
+            }
+        } catch (e: Exception) {
+            Result.Error(e.localizedMessage)
         }
 
     }
